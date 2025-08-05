@@ -1,0 +1,9 @@
+# MLflow
+mlruns/
+mlartifacts/
+best_model_metrics.yaml
+
+# Jupyter/IPython
+.ipynb_checkpoints/
+
+

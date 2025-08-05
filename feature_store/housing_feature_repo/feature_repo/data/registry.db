@@ -1,0 +1,26 @@
+
+K
++
+__dummy"
+__dummy_idJhousing_feature_repo
+Ü©¼ÄÈ¥áÅÜ©¼ÄÈ¥áÅ
+u
+U
+location)A specific housing location in California"house_idJhousing_feature_repo
+Ü©¼ÄÀ•ƒÆ½¯¼Ä¸€ø1"$1b5e0ce9-5bd5-4857-b213-2a98278c0e47*½¯¼Ä˜ï™Ÿ2ü
+Û
+location_featureshousing_feature_repolocation"
+
+MedInc"
+HouseAge"
+	AveBedrms"
+Latitude"
+MedHouseVal2€†°–:Åevent_timestampZdata/housing_features.parquetŠ1feast.infra.offline_stores.file_source.FileSource¢data/housing_features.parquetºThe raw housing data source’½¯¼ÄĞÃ÷•"½¯¼ÄĞÃ÷•@b
+house_id
+Ü©¼ÄÀ³óÇ½¯¼Ä¨‚‡Rå
+â
+,feast.infra.online_stores.sqlite.SqliteTable"±
+†/media/gaurav/ubuntudata/SemThree/MLops/Assigment1/MLOps_Group_49/feature_store/housing_feature_repo/feature_repo/data/online_store.db&housing_feature_repo_location_featuresbÜevent_timestampZdata/housing_features.parquetŠ1feast.infra.offline_stores.file_source.FileSource¢data/housing_features.parquetªhousing_feature_repoºThe raw housing data source’Û©¼Ä ˆßÌ"Ü©¼Ä€æƒÄŠ6
+
+housing_feature_repo
+Û©¼ÄĞ¬ªÊ±ª¼Ä¨œİ¶
