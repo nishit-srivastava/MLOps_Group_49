@@ -42,7 +42,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           # The context is the root of the repository
-          context: .
+          context: ./app/api
           # Specifies the path to the Dockerfile
           file: ./docker/Dockerfile
           push: true
