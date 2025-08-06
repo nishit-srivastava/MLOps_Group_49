@@ -1,4 +1,5 @@
-Steps to run API Locally
+
+Steps to run API 
 
 cd app
 cd api
@@ -16,4 +17,5 @@ curl --location 'http://localhost:5000/predict' \
   "AveBedrms": 1.02,
   "Latitude": 37.88
 }
-'
+
+
