@@ -1,3 +1,4 @@
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -44,3 +45,14 @@ coverage.xml
 # pip-wheel-metadata
 *.dist-info/
 *.egg-info/
+=======
+# MLflow
+mlruns/
+mlartifacts/
+best_model_metrics.yaml
+
+# Jupyter/IPython
+.ipynb_checkpoints/
+
+
+
