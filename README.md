@@ -18,4 +18,8 @@ curl --location 'http://localhost:5000/predict' \
   "Latitude": 37.88
 }
 
+//build image locally or get from docker hub
+docker build -t mlops-flask-api:latest -f ./docker/Dockerfile ./app/api
 
+use docker compose to run all
+//docker compose up
