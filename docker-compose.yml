@@ -1,6 +1,6 @@
 services:
   api:
-    image: mlops-flask-api:latest  # 👈 Use the locally built image
+    image: nishitsrivastava/mlops-flask-api  # 👈 Use the locally built image
     container_name: mlops-flask-api
     ports:
       - "5000:5000"
