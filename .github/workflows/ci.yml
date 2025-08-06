@@ -23,8 +23,8 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          # Installs dependencies from the root requirements.txt
-          pip install -r requirements.txt
+          # Installs dependencies from the requirements.txt located inside the API folder
+          pip install -r ./app/api/requirements.txt
           pip install flake8 pytest
 
       - name: Run linter (flake8)
