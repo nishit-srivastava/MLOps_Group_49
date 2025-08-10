@@ -12,10 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write # Needed to push back updated VERSION file
-    if: >
-      github.ref == 'refs/heads/main' ||
-      github.ref == 'refs/heads/2023ac05362'
-
+   
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
