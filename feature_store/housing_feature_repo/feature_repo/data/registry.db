@@ -7,7 +7,7 @@ __dummy_idJhousing_feature_repo
 u
 U
 location)A specific housing location in California"house_idJhousing_feature_repo
-Ü©¼ÄÀ•ƒÆ½¯¼Ä¸€ø1"$115ef90f-0e97-4681-b99a-ec1deb9367cd*÷ºãÄèéÙ†2·
+Ü©¼ÄÀ•ƒÆ½¯¼Ä¸€ø1"$3693653c-37ac-40df-9564-9894e3d863bc*»ãÄğ¸Óö2Õ
 
 Û
 location_featureshousing_feature_repolocation"
@@ -17,8 +17,8 @@ U
 	AveBedrms"
 Latitude"
 MedHouseVal2€†°–:Åevent_timestampZdata/housing_features.parquetŠ1feast.infra.offline_stores.file_source.FileSource¢data/housing_features.parquetºThe raw housing data source’½¯¼ÄĞÃ÷•"½¯¼ÄĞÃ÷•@b
-house_idÖ
-Ü©¼ÄÀ³óÇ÷ºãÄ°õú…
+house_idô
+Ü©¼ÄÀ³óÇ»ãÄÀ ö
 õÆ¢®È£óØõÌÒÄàš¦Ö
 õÌÒÄàš¦Ö¯ÍÒÄ°õı
 ¯ÍÒÄ°õı·ÏÒÄÕÀĞ
@@ -50,7 +50,8 @@ U
 ùœãÄ€üİé¾ãÄ°îÿ•
 ¾ãÄ°îÿ•şãÄÀçı­
 şãÄÀçı­Ù¤ãÄøãà
-Ù¤ãÄøãà÷ºãÄ¾½ŸRå
+Ù¤ãÄøãà÷ºãÄ¾½Ÿ
+÷ºãÄ¾½Ÿ»ãÄè¢úøRå
 â
 ,feast.infra.online_stores.sqlite.SqliteTable"±
 †/media/gaurav/ubuntudata/SemThree/MLops/Assigment1/MLOps_Group_49/feature_store/housing_feature_repo/feature_repo/data/online_store.db&housing_feature_repo_location_featuresbÜevent_timestampZdata/housing_features.parquetŠ1feast.infra.offline_stores.file_source.FileSource¢data/housing_features.parquetªhousing_feature_repoºThe raw housing data source’Û©¼Ä ˆßÌ"Ü©¼Ä€æƒÄŠ6
