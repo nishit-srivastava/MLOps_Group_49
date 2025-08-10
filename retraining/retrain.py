@@ -1,9 +1,11 @@
 
 import numpy as np
 import pandas as pd
-
+import os 
+import sqlite3
 from feast import FeatureStore
 
+from datetime import datetime
 from sklearn.datasets import fetch_california_housing
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
@@ -14,20 +16,49 @@ from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.model_selection import GridSearchCV
 
-
+import subprocess
 import mlflow
 import mlflow.sklearn
-from sklearn.linear_model import LinearRegression
-from sklearn.tree import DecisionTreeRegressor
-from sklearn.model_selection import GridSearchCV
-from sklearn.metrics import mean_squared_error, r2_score
 from mlflow.tracking import MlflowClient
 import yaml
+import joblib
+import glob
+import os 
+import pyarrow as pa
+import pyarrow.parquet as pq
 
-store = FeatureStore("/media/gaurav/ubuntudata/SemThree/MLops/Assigment1/MLOps_Group_49/feature_store/housing_feature_repo/feature_repo")
+
+#read new data 
+
+username = os.getenv("GIT_USERNAME")
+token = os.getenv("GIT_TOKEN")
+
+files = glob.glob("../new_data/*.csv")
+df_list = [pd.read_csv(f) for f in files]
+df = pd.concat(df_list)
+df = df.drop_duplicates()
+
+df.to_csv('../data/housing.csv', index=False)
 
 
-entity_df = pd.read_parquet("/media/gaurav/ubuntudata/SemThree/MLops/Assigment1/MLOps_Group_49/feature_store/housing_feature_repo/feature_repo/data/housing_features.parquet")[[
+
+df = df.drop(['AveRooms', 'Longitude','Population','AveOccup'], axis=1)
+
+
+df['house_id'] = range(1, len(df) + 1)
+
+# Add the current timestamp (same for all rows)
+df['event_timestamp'] = datetime.now()
+
+parquet_path = "../feature_store/housing_feature_repo/feature_repo/data/housing_features.parquet"
+table = pa.Table.from_pandas(df)
+pq.write_table(table, parquet_path)
+
+store = FeatureStore("../feature_store/housing_feature_repo/feature_repo")
+store.materialize_incremental(end_date=datetime.utcnow())
+
+
+entity_df = pd.read_parquet(parquet_path)[[
     "event_timestamp",
     "house_id",
     "MedHouseVal"
@@ -167,8 +198,6 @@ print("   Metrics saved to: best_model_metrics.yaml")
 
 
 
-# In[168]:
-
 
 # --- Register the best model ---
 model_uri = f"runs:/{best_run_id}/{best_artifact_path}"
@@ -177,18 +206,8 @@ registration_result = mlflow.register_model(
     name="HousingPricePredication"
 )
 
-
-# In[169]:
-
-
 import pickle
 
 with open("../models/model.pkl", "wb") as f:
     pickle.dump(best_dt_model, f)
-
-
-# In[ ]:
-
-
-
 
