@@ -71,5 +71,5 @@ jobs:
           file: ./docker/Dockerfile
           push: true
           tags: |
-            group49/mlops-flask-api:latest
-            group49/mlops-flask-api:${{ env.VERSION }}
+            ${{ secrets.DOCKER_USERNAME }}/mlops-flask-api:latest
+            ${{ secrets.DOCKER_USERNAME }}/mlops-flask-api:${{ env.VERSION }}
