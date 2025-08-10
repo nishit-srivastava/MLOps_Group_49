@@ -208,6 +208,44 @@ registration_result = mlflow.register_model(
 
 import pickle
 
-with open("../models/model.pkl", "wb") as f:
-    pickle.dump(best_dt_model, f)
+import os
+import glob
+import re
+import subprocess
+import shutil
+
+models_dir = os.path.join("../app/api/", "models")
+
+# Get all files matching model_v*.pkl
+model_files = glob.glob(f"{models_dir}/model_v*.pkl")
+
+if not model_files:
+    # No versioned files found, start at v1
+    new_model_path = os.path.join(models_dir, "model_v1.pkl")
+else:
+    # Find latest model by version number (not time)
+    def extract_version(filename):
+        match = re.search(r"model_v(\d+)\.pkl", os.path.basename(filename))
+        return int(match.group(1)) if match else -1
+
+    latest_model = max(model_files, key=extract_version)
+    latest_version = extract_version(latest_model)
+    new_version = latest_version + 1
+    new_model_path = os.path.join(models_dir, f"model_v{new_version}.pkl")
+
+    # Delete the older version
+    os.remove(latest_model)
+    print(f"Deleted old model: {latest_model}")
+
+# Simulate creating the new model file (replace with your actual model saving code)
+with open(new_model_path, "wb") as f:
+    f.write(b"")  # Placeholder for actual model bytes
+print(f"Created new model: {new_model_path}")
+
+# Add and commit to git
+subprocess.run(["git", "add", new_model_path], check=True)
+subprocess.run(["git", "commit", "-m", f"chore: add model_v{new_version}.pkl"], check=True)
+subprocess.run(["git", "push"], check=True)
+
+
 

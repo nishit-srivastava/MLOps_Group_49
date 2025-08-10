@@ -1,12 +1,15 @@
 import os
 import pickle
 from logger import get_logger
+import glob
 
 # --- Constants ---
-MODEL_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), ".", "models", "model.pkl"))
+models_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".", "models", "model.pkl"))
 INFERENCE_LOG_FILE = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "logs", "inference_logs.txt"))
 INFERENCE_COUNT_FILE = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "logs", "count.txt"))
 RETRAIN_THRESHOLD = 100
+models_dir = os.path.join(os.path.dirname(__file__), "models")
+MODEL_PATH = max(glob.glob(f"{models_dir}/model_v*.pkl"), key=os.path.getctime)
 
 # --- Load model ---
 with open(MODEL_PATH, "rb") as f:

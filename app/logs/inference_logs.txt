@@ -1,1 +1,2 @@
 {'MedInc': 8.3252, 'HouseAge': 41.0, 'AveBedrms': 1.02, 'Latitude': 37.88}, prediction=4.4045000000000005
+{'MedInc': 3.5, 'HouseAge': 15.0, 'AveBedrms': 1.0, 'Latitude': 34.05}, prediction=1.2617894736842103

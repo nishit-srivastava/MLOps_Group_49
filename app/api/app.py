@@ -4,9 +4,11 @@ from prometheus_client import Counter, Summary, generate_latest, CONTENT_TYPE_LA
 from pydantic import BaseModel, ValidationError
 from housing_model import predict_house_value
 from logger import get_logger
+from flasgger import Swagger
 
 app = Flask(__name__)
 CORS(app)
+swagger = Swagger(app)  # Initialize Swagger
 logger = get_logger("api")
 
 # Prometheus Metrics
@@ -22,11 +24,50 @@ class HousingInput(BaseModel):
 
 @app.route('/')
 def home():
+    """
+    Home endpoint
+    ---
+    responses:
+      200:
+        description: API status
+    """
     return jsonify({"message": "Inference API is running"}), 200
 
 @app.route('/predict', methods=['POST'])
 @REQUEST_LATENCY.time()
 def predict():
+    """
+    Predict house value
+    ---
+    tags:
+      - Inference
+    parameters:
+      - in: body
+        name: body
+        required: true
+        schema:
+          type: object
+          properties:
+            MedInc:
+              type: number
+              example: 3.5
+            HouseAge:
+              type: number
+              example: 15
+            AveBedrms:
+              type: number
+              example: 1.0
+            Latitude:
+              type: number
+              example: 34.05
+    responses:
+      200:
+        description: Predicted value
+      400:
+        description: Validation error
+      500:
+        description: Internal server error
+    """
     REQUEST_COUNT.inc()
     try:
         input_json = request.get_json()
@@ -42,6 +83,13 @@ def predict():
 
 @app.route('/metrics')
 def metrics():
+    """
+    Prometheus metrics
+    ---
+    responses:
+      200:
+        description: Prometheus metrics output
+    """
     return generate_latest(), 200, {'Content-Type': CONTENT_TYPE_LATEST}
 
 if __name__ == '__main__':
