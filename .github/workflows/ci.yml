@@ -5,7 +5,7 @@ on:
   push:
     branches:
       - main
-      - retraining
+      - retrain
 
 jobs:
   build:
