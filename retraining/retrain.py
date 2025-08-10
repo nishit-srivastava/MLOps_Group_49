@@ -243,9 +243,9 @@ with open(new_model_path, "wb") as f:
 print(f"Created new model: {new_model_path}")
 
 # Add and commit to git
-subprocess.run(["git", "add", new_model_path], check=True)
+subprocess.run(["git", "add", "."], check=True)
 subprocess.run(["git", "commit", "-m", f"chore: add model_v{new_version}.pkl"], check=True)
-subprocess.run(["git", "pull", "--rebase"])
+#subprocess.run(["git", "pull", "--rebase"])
 subprocess.run(["git", "push"], check=True)
 
 
