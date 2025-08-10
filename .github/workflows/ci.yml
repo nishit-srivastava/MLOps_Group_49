@@ -16,7 +16,7 @@ jobs:
       github.ref == 'refs/heads/main' ||
       (github.ref == 'refs/heads/2023ac05362' &&
        contains(join(github.event.commits.*.added, ','), '.pkl') ||
-       contains(join(github.event.commits.*.modified, ','), '.pkl') 
+       contains(join(github.event.commits.*.modified, ','), '.pkl') )
 
     steps:
       - name: Checkout code
