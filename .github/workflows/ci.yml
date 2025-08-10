@@ -5,7 +5,7 @@ on:
   push:
     branches:
       - main
-      - 2023ac05362
+      - retraining
 
 jobs:
   build:
