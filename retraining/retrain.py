@@ -40,6 +40,11 @@ df = df.drop_duplicates()
 
 df.to_csv('../data/housing.csv', index=False)
 
+subprocess.run(['dvc', 'add', "../data/housing.csv"],
+            check=True,
+            capture_output=True,
+            text=True
+        )
 
 
 df = df.drop(['AveRooms', 'Longitude','Population','AveOccup'], axis=1)
