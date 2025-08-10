@@ -8,7 +8,7 @@ from flasgger import Swagger
 
 app = Flask(__name__)
 CORS(app)
-swagger = Swagger(app)  # Initialize Swagger
+swagger = Swagger(app)  # Initialize Swagger#
 logger = get_logger("api")
 
 # Prometheus Metrics
