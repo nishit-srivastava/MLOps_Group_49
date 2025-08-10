@@ -10,7 +10,7 @@ INFERENCE_COUNT_FILE = os.path.abspath(os.path.join(os.path.dirname(__file__), "
 RETRAIN_THRESHOLD = 100
 models_dir = os.path.join(os.path.dirname(__file__), "models")
 MODEL_PATH = max(glob.glob(f"{models_dir}/model_v*.pkl"), key=os.path.getctime)
-
+print(MODEL_PATH)
 # --- Load model ---
 with open(MODEL_PATH, "rb") as f:
     model = pickle.load(f)

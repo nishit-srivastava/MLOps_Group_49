@@ -239,7 +239,7 @@ else:
 
 # Simulate creating the new model file (replace with your actual model saving code)
 with open(new_model_path, "wb") as f:
-    f.write(b"")  # Placeholder for actual model bytes
+     pickle.dump(best_dt_model, f)  # Placeholder for actual model bytes
 print(f"Created new model: {new_model_path}")
 
 # Add and commit to git
