@@ -15,6 +15,37 @@ The API provides a machine learning model prediction endpoint and exposes metric
 ├── docker-compose.yml
 └── README.md
 
+---
+## 📌 Project Overview
+
+<img width="5210" height="1784" alt="image" src="https://github.com/user-attachments/assets/a67c8248-9c9f-427d-9a40-9f2c589171ba" />
+
+
+- **Dataset:** California Housing Dataset  
+- **Goal:** Predict median house prices  
+- **EDA & Training:**  
+  - Initial training with **Linear Regression** and **Decision Tree**  
+  - Final selected model: **Decision Tree Regressor**  
+- **Feature Store:** [Feast](https://feast.dev/)  
+- **Data Versioning:** [DVC](https://dvc.org/)  
+- **API Framework:** FastAPI (model inference)  
+- **Monitoring:** Prometheus (metrics) + Grafana (dashboard)  
+- **Deployment:** Dockerized FastAPI app  
+- **Retraining:** Watcher detects new files → Webhook triggers retraining
+
+---
+
+## 🛠 Tech Stack
+
+| Component       | Tool/Framework       |
+|----------------|----------------------|
+| Data Versioning | DVC                  |
+| Feature Store   | Feast                |
+| API             | FastAPI              |
+| Monitoring      | Prometheus + Grafana |
+| Deployment      | Docker               |
+| Retraining      | Watchdog + Webhook   |
+
 
 ---
 
@@ -36,6 +67,9 @@ The API provides a machine learning model prediction endpoint and exposes metric
 - Runs on port **3000**
 - Default admin password: `admin`
 - Persists data in `grafana-storage` volume
+
+
+  
 
 ---
 
